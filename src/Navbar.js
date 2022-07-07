@@ -62,13 +62,13 @@ function NavBar(props) {
               </li>
 
                <li style={styles.colors} className="d-lg-inline-block my-3 my-lg-0 me-lg-3">
-                <Link style={styles.noDec}to="/">
+                <Link style={styles.noDec} to="/Movies">
                   <i className="fa-solid fa-house"></i>
                   <span className="nav-mod mx-2"><b>Home</b></span>
                 </Link>
               </li>
               <li style={{color:'white'}} className="d-lg-inline-block my-3 my-lg-0 mx-lg-4">
-                <Link style={styles.noDec} to="/movies/favourites">
+                <Link style={styles.noDec} to="/Movies/favourites">
                   <i className="fa-solid fa-heart"></i>
                   <span className="nav-mod mx-2"><b>Favourites</b></span>
                 </Link>

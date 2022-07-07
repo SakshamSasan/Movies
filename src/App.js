@@ -22,9 +22,9 @@ function App(props) {
 
       <NavBar dispatch={props.dispatch} movie={props.search}/>
       <Routes>
-        <Route exact path = '/' element={<Home />}>
+        <Route exact path = '/Movies' element={<Home />}>
         </Route>
-        <Route exact path = '/movies/favourites' element={<Favourites dispatch={props.dispatch} fav={props.movies.favourites}/>}>
+        <Route exact path = '/Movies/favourites' element={<Favourites dispatch={props.dispatch} fav={props.movies.favourites}/>}>
         </Route>
       </Routes>
     </div>
