@@ -50,7 +50,7 @@ export function remove_dropdown() {
 //async action creator
 
 export function fetch_movie(searchText) {
-    const url = `http://www.omdbapi.com/?t=${searchText}&apikey=8da05739`
+    const url = `https://www.omdbapi.com/?t=${searchText}&apikey=8da05739`
 
     return  async function (dispatch ) {
         var response = await fetch(url)
