@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext,useEffect} from "react";
+import { Route, Routes } from "react-router-dom";
+import { connect, StoreContext } from ".";
+import { add_movies, remove_dropdown } from "./actions";
+import {data} from './data'
+import Favourites from "./Favourites";
+import Home from "./Home";
+import NavBar from "./Navbar";
 
-function App() {
+
+function App(props) {
+  
+  var store=useContext(StoreContext)
+  
+
+  useEffect(()=>{
+    store.dispatch(add_movies(data))
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" onClick={()=>{props.dispatch(remove_dropdown())}}>
+
+      <NavBar dispatch={props.dispatch} movie={props.search}/>
+      <Routes>
+        <Route exact path = '/' element={<Home />}>
+        </Route>
+        <Route exact path = '/movies/favourites' element={<Favourites dispatch={props.dispatch} fav={props.movies.favourites}/>}>
+        </Route>
+      </Routes>
     </div>
   );
 }
 
-export default App;
+
+
+function mapStateToProps(state){
+
+  return {
+    movies: state.movies,
+    search: state.search
+  }
+}
+const connectedComponent = connect(mapStateToProps)(App)
+
+export default connectedComponent;

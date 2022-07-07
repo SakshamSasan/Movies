@@ -5,9 +5,38 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(90,90,90,0.2);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.nav-mod {
+  display: none;
+}
+.left {
+  margin-left:0px;
+}
+@media (max-width:992px) {
+  .nav-mod {
+    display: inline-block;
+  }
+  .left {
+    margin-left:-1.5rem;
+  }
+}
+.navbarIcon {
+  color:white !important;
+  border:none !important;
+  cursor:pointer;
+}
+.remove-btn {
+  color:rgb(203,68,74);
+  cursor: pointer;
+}
+.remove-btn:hover{
+  background-color: rgb(203,68,74);
+  color:white;
+}
+
